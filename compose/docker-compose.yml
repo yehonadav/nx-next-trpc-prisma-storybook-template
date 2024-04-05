@@ -1,0 +1,19 @@
+version: '3.8'
+
+name: my-project
+
+services:
+  postgres:
+    image: postgres:16.2
+    container_name: my-project-db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: my-project
+      POSTGRES_PASSWORD: my-project
+    volumes:
+      - db-data:/var/lib/my-project/data
+
+volumes:
+  db-data:
